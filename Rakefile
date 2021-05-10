@@ -3,6 +3,7 @@
 require 'bundler/gem_tasks'
 require 'rake/testtask'
 require 'ndr_dev_support/tasks'
+require 'ndr_support/safe_path'
 
 Rake::TestTask.new(:test) do |t|
   t.libs << 'test'
@@ -17,3 +18,5 @@ require 'rubocop/rake_task'
 RuboCop::RakeTask.new
 
 task default: %i[test rubocop]
+
+SafePath.configure! 'filesystem_paths.yml'
