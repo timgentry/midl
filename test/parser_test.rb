@@ -31,7 +31,8 @@ class ParserTest < Minitest::Test
   def test_should_cope_with_a_mixed_case_query
     parser = Midl::Parser.new('All')
     assert parser.valid?
-    assert_empty parser.meta_data
+    expected_meta_data = {}
+    assert_equal expected_meta_data, parser.meta_data
     assert_nil parser.failure_reason
   end
 end
