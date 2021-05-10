@@ -1,0 +1,14 @@
+grammar Midl
+  # The root grammar
+  rule query
+    all_keyword
+  end
+
+  rule word_break
+    !(!(' '/',') .)
+  end
+
+  rule all_keyword
+     'all' word_break
+  end
+end

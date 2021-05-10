@@ -4,7 +4,7 @@ require_relative 'lib/midl/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'midl'
-  spec.version       = MiDL::VERSION
+  spec.version       = Midl::VERSION
   spec.authors       = ['Tim Gentry']
   spec.email         = ['timgentry@users.noreply.github.com']
 

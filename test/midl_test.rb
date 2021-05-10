@@ -2,12 +2,8 @@
 
 require 'test_helper'
 
-class MiDLTest < Minitest::Test
+class MidlTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::MiDL::VERSION
-  end
-
-  def test_it_does_something_useful
-    assert false
+    refute_nil ::Midl::VERSION
   end
 end

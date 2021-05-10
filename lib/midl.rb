@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'midl/version'
+require 'midl/version'
+require 'midl/parser'
 
-module MiDL
+module Midl
   class Error < StandardError; end
   # Your code goes here...
 end
