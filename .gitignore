@@ -5,6 +5,7 @@
 /doc/
 /Gemfile.lock
 /pkg/
+/resources/*.xlsx
 /spec/reports/
 /tmp/
 /_yardoc/
