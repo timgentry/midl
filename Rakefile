@@ -22,3 +22,4 @@ task default: %i[test rubocop]
 SafePath.configure! 'filesystem_paths.yml'
 
 load 'lib/tasks/metadata.rake'
+load 'lib/tasks/spark.rake'
