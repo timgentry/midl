@@ -3,7 +3,7 @@ grammar Midl
 
   # The root grammar
   rule query
-    all_keyword comma_keyword? but_keyword? ignore_opt_out?
+    all_keyword records_keyword comma_keyword? but_keyword? ignore_opt_out?
   end
 
   rule word_break
@@ -18,10 +18,15 @@ grammar Midl
      'all' word_break
   end
 
+  rule but_keyword
+     space? 'but' word_break
+  end
+
   rule comma_keyword
      ',' word_break
   end
-  rule but_keyword
-     space? 'but' word_break
+
+  rule records_keyword
+     space 'records' word_break
   end
 end
