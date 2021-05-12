@@ -11,7 +11,7 @@ class OptOutTest < Minitest::Test
     assert_equal({ Midl::ALL => true }, parser.meta_data['ignore_opt_out'])
 
     parser = Midl::Parser.new('all, ignoring optouts')
-    assert parser.valid?, parser.failure_reason
+    assert parser.valid?, "failure_reason: #{parser.failure_reason}"
     assert_equal({ Midl::ALL => true }, parser.meta_data['ignore_opt_out'])
   end
 end
