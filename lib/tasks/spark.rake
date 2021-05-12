@@ -4,9 +4,16 @@ task :spark do
 
   hash = {
     views: [
-      { name: 'people', source: 'resources/people.json' }
+      { name: 'optouts', source: 'resources/optouts.json' },
+      { name: 'patients', source: 'resources/COVID19_CRO.patient.mapped.parquet' },
+      { name: 'journals', source: 'resources/COVID19_CRO.journal.mapped.parquet' }
     ],
-    sql: 'SELECT * FROM people'
+    queries: [
+      'SELECT * FROM optouts',
+      'SELECT * FROM patients',
+      'SELECT * FROM patients LEFT JOIN optouts ON patients.nhsnumber = optouts.nhsnumber WHERE optouts.nhsnumber IS NULL'
+      # 'SELECT * FROM journals'
+    ]
   }
 
   cmd = "spark-submit spark_submitter.py \"#{ERB::Util.url_encode(hash.to_json)}\""

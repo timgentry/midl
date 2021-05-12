@@ -4,6 +4,7 @@ Run with:
   ./bin/spark-submit spark_submitter.py
 """
 import json
+import pathlib
 import sys
 import urllib.parse
 from pyspark.sql import SparkSession
@@ -13,7 +14,8 @@ from pyspark.sql.types import StringType, StructType, StructField
 
 def create_view(spark, view_name, source):
     # spark is an existing SparkSession
-    df = spark.read.json(source)
+    format = pathlib.Path(source).suffix[1:]
+    df = spark.read.load(source, format=format)
     # df.show()
     # df.printSchema()
 
@@ -39,8 +41,7 @@ if __name__ == "__main__":
         # print (view)
         create_view(spark, view["name"], view["source"])
     
-    if "sql" in payload:
-        sql_query = payload["sql"]
+    for sql_query in payload["queries"]:
         print (sql_query)
         sqlDF = spark.sql(sql_query)
         sqlDF.show()
