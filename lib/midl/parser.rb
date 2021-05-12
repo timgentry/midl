@@ -6,6 +6,10 @@ module Midl
   class Parser
     attr_reader :parser
 
+    DEFAULT_META_DATA = {
+      'ignore_opt_out' => { Midl::ALL => false }
+    }.freeze
+
     def initialize(query)
       raise ArgumentError unless query.is_a?(String)
 
@@ -43,7 +47,7 @@ module Midl
     end
 
     def meta_data
-      valid? ? @result.meta_data : {}
+      valid? ? @result.meta_data(DEFAULT_META_DATA.dup) : {}
     end
   end
 end

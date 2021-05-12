@@ -1,6 +1,13 @@
 require 'test_helper'
 
 class OptOutTest < Minitest::Test
+  def test_should_default_to_using_optouts
+    parser = Midl::Parser.new('all')
+
+    assert parser.valid?
+    assert_equal({ Midl::ALL => false }, parser.meta_data['ignore_opt_out'])
+  end
+
   def test_should_ignore_opt_outs
     parser = Midl::Parser.new('all, but ignore opt-outs')
     assert parser.valid?
