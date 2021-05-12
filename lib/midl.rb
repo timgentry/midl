@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'midl/version'
+require 'midl/constants'
 require 'midl/parser'
+require 'midl/version'
 
 # Midl namespacing definition
 module Midl

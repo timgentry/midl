@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+# This stores additional constants
 module Midl
-  MESSAGE = 'msg'.freeze
+  ALL = 'all'
+  # BEGINS = 'begins'
+  # EQUALS = 'equals'
+  # LIMITS = 'limits'
+  # MESSAGE = 'msg'
 end
