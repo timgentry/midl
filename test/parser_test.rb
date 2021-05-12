@@ -15,6 +15,7 @@ class ParserTest < Minitest::Test
 
   def test_should_display_error_msg_on_empty_query
     parser = Midl::Parser.new('')
+
     refute parser.valid?
     assert_instance_of Hash, parser.meta_data
     assert_empty parser.meta_data
@@ -23,6 +24,7 @@ class ParserTest < Minitest::Test
 
   def test_should_display_error_msg_on_invalid_query
     parser = Midl::Parser.new('bob and simon')
+
     refute parser.valid?
     assert_empty parser.meta_data
     refute_nil parser.failure_reason
@@ -30,9 +32,18 @@ class ParserTest < Minitest::Test
 
   def test_should_cope_with_a_mixed_case_query
     parser = Midl::Parser.new('All')
+
     assert parser.valid?
     expected_meta_data = {}
     assert_equal expected_meta_data, parser.meta_data
+    assert_nil parser.failure_reason
+  end
+
+  def test_should_ignore_opt_outs
+    parser = Midl::Parser.new('all, but ignore opt-outs')
+
+    assert parser.valid?
+    assert_equal({ 'ignore_opt_out' => true }, parser.meta_data)
     assert_nil parser.failure_reason
   end
 end

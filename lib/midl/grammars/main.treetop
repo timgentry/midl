@@ -1,14 +1,24 @@
 grammar Midl
+  include OptOut
+
   # The root grammar
   rule query
-    all_keyword
+    all_keyword but_keyword? ignore_opt_out?
   end
 
   rule word_break
     !(!(' '/',') .)
   end
 
+  rule space
+    ' '+
+  end
+
   rule all_keyword
      'all' word_break
+  end
+
+  rule but_keyword
+     ', '? 'but' word_break
   end
 end

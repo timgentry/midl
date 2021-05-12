@@ -11,7 +11,8 @@ task :spark do
     queries: [
       'SELECT * FROM optouts',
       'SELECT * FROM patients',
-      'SELECT * FROM patients LEFT JOIN optouts ON patients.nhsnumber = optouts.nhsnumber WHERE optouts.nhsnumber IS NULL'
+      'SELECT * FROM patients LEFT JOIN optouts ON patients.nhsnumber = optouts.nhsnumber' \
+        'WHERE optouts.nhsnumber IS NULL'
       # 'SELECT * FROM journals'
     ]
   }
