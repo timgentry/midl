@@ -3,8 +3,7 @@
 # This stores additional constants
 module Midl
   ALL = 'all'
-  # BEGINS = 'begins'
-  # EQUALS = 'equals'
-  # LIMITS = 'limits'
-  # MESSAGE = 'msg'
+  BEGINS = 'begins'
+  EQUALS = 'equals'
+  MESSAGE = 'msg'
 end
