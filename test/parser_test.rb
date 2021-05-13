@@ -31,10 +31,11 @@ class ParserTest < Minitest::Test
   end
 
   def test_should_cope_with_a_mixed_case_query
-    parser = Midl::Parser.new('All Records')
+    parser = Midl::Parser.new('All pAtient Records')
 
     assert parser.valid?
     assert_equal({ Midl::ALL => false }, parser.meta_data['ignore_opt_out'])
+    assert_equal({ Midl::EQUALS => 'patient' }, parser.meta_data['table'])
     assert_nil parser.failure_reason
   end
 end

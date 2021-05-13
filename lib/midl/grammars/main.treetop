@@ -4,7 +4,7 @@ grammar Midl
 
   # The root grammar
   rule query
-    all_keyword records_keyword in_cohort? comma_keyword? but_keyword? ignore_opt_out?
+    all_keyword table records_keyword in_cohort? comma_keyword? but_keyword? ignore_opt_out?
   end
 
   rule word_break
@@ -30,4 +30,9 @@ grammar Midl
   rule records_keyword
      space 'records' word_break
   end
+
+  rule table
+    space table_name:(!' ' .)+ <Midl::Nodes::Main>
+  end
+  
 end
