@@ -1,7 +1,7 @@
 module Midl
   grammar OptOut
     rule ignore_opt_out
-      space ('do not apply' / 'ignore' / 'ignoring') space ('optout' / 'opt-out') 's'? word_break <Midl::Nodes::OptOut>
+      space ('do not apply' / 'don\'t apply' / 'ignore' / 'ignoring') space ('optout' / 'opt-out') 's'? word_break <Midl::Nodes::OptOut>
     end
   end
 end
