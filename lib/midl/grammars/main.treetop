@@ -1,9 +1,10 @@
 grammar Midl
+  include Cohort
   include OptOut
 
   # The root grammar
   rule query
-    all_keyword records_keyword comma_keyword? but_keyword? ignore_opt_out?
+    all_keyword records_keyword in_cohort? comma_keyword? but_keyword? ignore_opt_out?
   end
 
   rule word_break

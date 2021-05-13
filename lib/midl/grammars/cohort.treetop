@@ -1,0 +1,19 @@
+module Midl
+  grammar Cohort
+    rule in_cohort
+      space 'in' (study_keyword / cohort_keyword)+ space nic_code <Midl::Nodes::Cohort>
+    end
+
+    rule nic_code
+      'nic' ('-' / '_') [0-9]+ word_break
+    end
+
+    rule study_keyword
+      space 'study' word_break
+    end
+
+    rule cohort_keyword
+      space 'cohort' word_break
+    end
+  end
+end
